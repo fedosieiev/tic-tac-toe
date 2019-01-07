@@ -1,50 +1,74 @@
 <!DOCTYPE>
 <html>
 <head>
-  <title>Крестики-нолики</title>
-  <meta charset="utf-8">
+<meta charset = "utf-8">
+<style>
+
+form {
+	width:500px;
+	margin:0 200px;
+}
+
+input{
+	width:100px;
+	height:100px;
+	margin:3px;
+	font:34px/26px comic sans ms;
+	color:#092074;
+}
+</style>
+<title>Пятнашки</title>
 </head>
 <body>
-
-<form name = "button">
-  <p> Крестики - нолики </p>
-  <table height="" width="" border="0">
-    <tr>
-      <td> <input type="button" name="b1" value="" onclick="event_b1(this)"> </td>
-      <td> <input type="button" name="b2" value="" onclick="event_b1(this)"> </td>
-      <td> <input type="button" name="b3"value="" onclick="event_b1(this)"> </td>
-    </tr>
-    <tr>
-      <td><input type="button" name="b4"value="" onclick="event_b1(this)"></td>
-      <td><input type="button" name="b5"value="" onclick="event_b1(this)"></td>
-      <td><input type="button" name="b6"value="" onclick="event_b1(this)"></td>
-    </tr>
-    <tr>
-      <td><input type="button" name="b7"value="" onclick="event_b1(this)"></td>
-      <td><input type="button" name="b8"value="" onclick="event_b1(this)"></td>
-      <td><input type="button" name="b9"value="" onclick="event_b1(this)"></td>
-    </tr>    
-  </table> 
-</form>
-
-<script>
-
-
-let hod = 0;
-function event_b1 (button){
-if(button.value) return;
-button.value = hod++ % 2  ? "0" : "X";
-winning()
-}
- 
-function winning(){
-  if (button.b1.value == "X" && button.b2.value == "X" && button.b3.value == "X"||button.b4.value == "X" && button.b5.value.b5.value == "X" && button.b6.value == "X"||button.b7.value == "X" && button.b8.value == "X" && button.b9.value == "X"||button.b1.value == "X" && button.b5.value == "X" && button.b9.value == "X"||button.b2.value == "X" && button.b5.value == "X" && button.b8.value == "X"||button.b3.value == "X" && button.b6.value == "X" && button.b9.value == "X"||button.b3.value == "X" && button.b5.value == "X" && button.b7.value == "X") alert ("Выиграли X");
-    else if (button.b1.value == "0" && button.b2.value == "0" && button.b3.value == "0"||button.b4.value == "0" && button.b5.value == "0" && button.b6.value == "0"||button.b7.value == "0" && button.b8.value == "0" && button.b9.value == "0"||button.b1.value == "0" && button.b5.value == "0" && button.b9.value == "0"||button.b2.value == "0" && button.b5.value == "0" && button.b8.value == "0"||button.b3.value == "0" && button.b6.value == "0" && button.b9.value == "0"||button.b3.value == "0" && button.b5.value == "0" && button.b7.value == "0")
-    alert ("Выиграли 0")
-};
-
-</script>
+	
+		<form name = "myForm">
+		
+				<input type = "button" value = "1" onclick = "game(0)">
+				<input type = "button" value = "2" onclick = "game(1)">
+				<input type = "button" value = "3" onclick = "game(2)">
+				<input type = "button" value = "4" onclick = "game(3)">
+				<br>
+				<input type = "button" value = "5" onclick = "game(4)">
+				<input type = "button" value = "6" onclick = "game(5)">
+				<input type = "button" value = "7" onclick = "game(6)">
+				<input type = "button" value = "8" onclick = "game(7)">
+				<br>
+				<input type = "button" value = "9" onclick = "game(8)">
+				<input type = "button" value = "10" onclick = "game(9)">
+				<input type = "button" value = "11" onclick = "game(10)">
+				<input type = "button" value = "12" onclick = "game(11)">
+				<br>
+				<input type = "button" value = "13" onclick = "game(12)">
+				<input type = "button" value = "14" onclick = "game(13)">
+				<input type = "button" value = "15" onclick = "game(14)">
+				<input type = "button" value = " " onclick = "game(15)">
+		</form>
+	<script>
+		function myChange(n, m){
+		   var f = document.myForm.elements;
+		   var f0 = f[n].value;
+		   f[n].value = f[m].value;
+		   f[m].value = f0;
+		   }
+		
+		   
+		function game(n){
+		  var f = document.myForm.elements;
+		  if (n % 4 == 3); 
+		  else if (f[n+1].value != ' ');
+			   else myChange(n, n+1);
+		  if (n % 4 == 0);
+		  else if (f[n-1].value != ' ');
+		       else  myChange(n, n-1);
+		  if (n > 11);
+		  else if (f[n+4].value != ' ');
+		       else myChange(n, n+4);
+		  if (n < 4);
+		  else if (f[n-4].value != ' ');
+		       else myChange(n, n-4);
+		}
+	</script>
+	
+	
 </body>
 </html>
-
-
